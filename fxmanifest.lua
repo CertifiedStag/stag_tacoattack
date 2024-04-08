@@ -18,5 +18,12 @@ server_scripts {
     'bridge/server/**.lua',
     'sv_tacoattack.lua',
 }
-
+escrow_ignore {
+    'bridge/client/**.lua
+    'bridge/server/**.lua
+    'readme.md'
+    'cl_tacoattack.lua'
+    'sv_tacoattack.lua'
+    'config.lua'
+}
 lua54 'yes'
