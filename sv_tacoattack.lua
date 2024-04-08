@@ -1,48 +1,48 @@
 local Config = lib.require('config')
 local TacoattackFood = {
     ['nakedtaco'] = {
-        event = 'cs_tacoattack:client:makeFood',
+        event = 'stag_tacoattack:client:makeFood',
         remove = { {ing = 'tacoshell', amount = 1}, {ing = 'beans', amount = 1}, {ing = 'cheesesauce', amount = 1}, {ing = 'tacofilling', amount = 1}, }
     },
     ['cheesetaco'] = {
-        event = 'cs_tacoattack:client:makeFood',
+        event = 'stag_tacoattack:client:makeFood',
         remove = { {ing = 'tacoshell', amount = 1}, {ing = 'tacofilling', amount = 1}, {ing = 'cheesesauce', amount = 1}, {ing = 'veggiesmix', amount = 1}, }
     },
     ['grilledtaco'] = {
-        event = 'cs_tacoattack:client:makeFood',
+        event = 'stag_tacoattack:client:makeFood',
         remove = { {ing = 'tacoshell', amount = 1}, {ing = 'tacofilling', amount = 1}, }
     },
     ['classicburrito'] = {
-        event = 'cs_tacoattack:client:makeFood',
+        event = 'stag_tacoattack:client:makeFood',
         remove = { {ing = 'tortilla', amount = 1}, {ing = 'beans', amount = 1}, {ing = 'burritofilling', amount = 1}, {ing = 'veggiesmix', amount = 1}, }
     },
     ['cheesenachos'] = {
-        event = 'cs_tacoattack:client:makeFood',
+        event = 'stag_tacoattack:client:makeFood',
         remove = { {ing = 'nachospacket', amount = 1}, {ing = 'cheesesauce', amount = 1}, {ing = 'salsa', amount = 1}, }
     },
     ['tacoshell'] = {
-        event = 'cs_tacoattack:client:prepStation',
+        event = 'stag_tacoattack:client:prepStation',
         remove = { {ing = 'wheatflour', amount = 1}, {ing = 'water_bottle', amount = 1}, }
     },
       ['tortilla'] = {
-        event = 'cs_tacoattack:client:prepStation',
+        event = 'stag_tacoattack:client:prepStation',
         remove = { {ing = 'wheatflour', amount = 1}, {ing = 'water_bottle', amount = 1}, }
     },
     ['veggiesmix'] = {
-        event = 'cs_tacoattack:client:prepStation',
+        event = 'stag_tacoattack:client:prepStation',
         remove = { {ing = 'onion', amount = 1}, {ing = 'garlic', amount = 1}, {ing = 'tomato', amount = 1}, {ing = 'capsicum', amount = 1}, {ing = 'carrot', amount = 1},}
     },
     ['orangejuice'] = {
-        event = 'cs_tacoattack:client:makeDrink',
+        event = 'stag_tacoattack:client:makeDrink',
         remove = { {ing = 'choppedorange', amount = 1},{ing = 'water_bottle', amount = 1}, {ing = 'sugarpacket', amount = 1}, }
     },
     ['applejuice'] = {
-          event = 'cs_tacoattack:client:makeDrink',
+          event = 'stag_tacoattack:client:makeDrink',
           remove = { {ing = 'choppedapple', amount = 1},{ing = 'water_bottle', amount = 1}, {ing = 'sugarpacket', amount = 1}, }
       },
 }
 
-lib.callback.register('cs_tacoattack:server:handleFood', function(source, itemName)
+lib.callback.register('stag_tacoattack:server:handleFood', function(source, itemName)
     local src = source
     local Player = GetPlayer(src)
 
@@ -68,13 +68,13 @@ lib.callback.register('cs_tacoattack:server:handleFood', function(source, itemNa
     SetTimeout(Config.CookDuration, function() AddItem(Player, itemName, 1) end)
 end)
 
-lib.callback.register('cs_tacoattack:server:removeConsumable', function(source, item, slot)
+lib.callback.register('stag_tacoattack:server:removeConsumable', function(source, item, slot)
     local src = source
     local Player = GetPlayer(src)
     RemoveItemFromSlot(Player, item, 1, slot)
 end)
 
-RegisterNetEvent("cs_tacoattack:server:billPlayer", function(playerId, amount)
+RegisterNetEvent("stag_tacoattack:server:billPlayer", function(playerId, amount)
     local src = source
     local Player = GetPlayer(src)
     local biller = Player

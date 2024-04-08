@@ -21,6 +21,8 @@ return {
         { coords = vec3(15.39, -1595.65, 29.28), radius = 2.0, icon = 'far fa-clipboard', event = 'cs_tacoattack:client:passThrough', label = 'Big Tray', job = 'tacoattack', type = 'stash', stashLabel = 'TA_Big_Tray', slots = 20, weight = 150000 },
         { coords = vec3(8.88, -1602.42, 29.37), radius = 1.0, icon = 'far fa-clipboard', event = 'cs_tacoattack:client:frontTray2', label = 'Fridge', type = 'stash', stashLabel = 'TA_Fridge', slots = 10, weight = 75000},
         { coords = vec3(13.92, -1600.66, 29.38), radius = 0.9, icon = 'fa-brands fa-cc-visa', event = 'cs_tacoattack:client:useRegister', label = 'Bill Player', job = 'tacoattack' },
+        { coords = vec3(13.92, -1600.66, 29.38), radius = 0.9, icon = 'fas fa-sign-in-alt', event = 'cs_tacoattack:ToggleDuty', label = 'Duty Toggle', job = 'tacoattack' },
+
     },
     Items = { -- qb-inventory
     label = 'Shop',

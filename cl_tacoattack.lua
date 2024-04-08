@@ -46,7 +46,7 @@ function createJobZones()
             },
             distance = 1.5
         })
-        tacoZones[#tacoZones+1] = 'taxoAttackZone'..k
+        tacoZones[#tacoZones+1] = 'tacoAttackZone'..k
     end
 end
 
@@ -57,7 +57,7 @@ function removeJobZones()
     table.wipe(tacoZones)
 end
     
-AddEventHandler('cs_tacoattack:client:frontTray', function()
+AddEventHandler('stag_tacoattack:client:frontTray', function()
     if ox_inv then
         exports.ox_inventory:openInventory('stash', { id = 'TA_Front_Tray_1'})
     else
@@ -69,7 +69,7 @@ AddEventHandler('cs_tacoattack:client:frontTray', function()
     end
 end)
 
-AddEventHandler('cs_tacoattack:client:frontTray2', function()
+AddEventHandler('stag_tacoattack:client:frontTray2', function()
     if ox_inv then
         exports.ox_inventory:openInventory('stash', { id = 'TA_Fridge'})
     else
@@ -81,7 +81,7 @@ AddEventHandler('cs_tacoattack:client:frontTray2', function()
     end
 end)
 
-AddEventHandler('cs_tacoattack:client:passThrough', function()
+AddEventHandler('stag_tacoattack:client:passThrough', function()
     if ox_inv then
         exports.ox_inventory:openInventory('stash', { id = 'TA_Big_Tray'})
     else
@@ -93,7 +93,7 @@ AddEventHandler('cs_tacoattack:client:passThrough', function()
     end
 end)
 
-AddEventHandler('cs_tacoattack:client:ingredientStore', function()
+AddEventHandler('stag_tacoattack:client:ingredientStore', function()
     if ox_inv then
         exports.ox_inventory:openInventory('shop', { id = 1, type = 'Ingredients - TacoAttack'})
     else
@@ -101,7 +101,7 @@ AddEventHandler('cs_tacoattack:client:ingredientStore', function()
     end
 end)
 
-RegisterNetEvent('cs_tacoattack:client:Eat', function(itemName, itemSlot, emote)
+RegisterNetEvent('stag_tacoattack:client:Eat', function(itemName, itemSlot, emote)
     if GetInvokingResource() then return end
     toggleEmotes(true, emote)
     if lib.progressCircle({
@@ -114,13 +114,13 @@ RegisterNetEvent('cs_tacoattack:client:Eat', function(itemName, itemSlot, emote)
     }) then
         toggleEmotes(false)
         handleStatus('hunger', itemName)
-        lib.callback.await('cs_tacoattack:server:removeConsumable', false, itemName, itemSlot)
+        lib.callback.await('stag_tacoattack:server:removeConsumable', false, itemName, itemSlot)
     else
         toggleEmotes(false)
     end
 end)
 
-RegisterNetEvent('cs_tacoattack:client:Drink', function(itemName, itemSlot, emote)
+RegisterNetEvent('stag_tacoattack:client:Drink', function(itemName, itemSlot, emote)
     if GetInvokingResource() then return end
     toggleEmotes(true, emote)
     if lib.progressCircle({
@@ -133,13 +133,13 @@ RegisterNetEvent('cs_tacoattack:client:Drink', function(itemName, itemSlot, emot
     }) then
         toggleEmotes(false)
         handleStatus('thirst', itemName)
-        lib.callback.await('cs_tacoattack:server:removeConsumable', false, itemName, itemSlot)
+        lib.callback.await('stag_tacoattack:server:removeConsumable', false, itemName, itemSlot)
     else
         toggleEmotes(false)
     end
 end)
 
-RegisterNetEvent('cs_tacoattack:client:makeFood', function()
+RegisterNetEvent('stag_tacoattack:client:makeFood', function()
     if GetInvokingResource() then return end
     toggleEmotes(true, 'bbqf')
     if lib.progressCircle({
@@ -151,11 +151,11 @@ RegisterNetEvent('cs_tacoattack:client:makeFood', function()
         disable = { move = true, car = false, mouse = false, combat = true, },
     }) then
         toggleEmotes(false)
-        TriggerEvent('cs_tacoattack:client:makeFood')
+        TriggerEvent('stag_tacoattack:client:makeFood')
     end
 end)
 
-RegisterNetEvent('cs_tacoattack:client:prepStation', function()
+RegisterNetEvent('stag_tacoattack:client:prepStation', function()
     if GetInvokingResource() then return end
     toggleEmotes(true, 'bbqf')
     if lib.progressCircle({
@@ -167,11 +167,11 @@ RegisterNetEvent('cs_tacoattack:client:prepStation', function()
         disable = { move = true, car = false, mouse = false, combat = true, },
     }) then
         toggleEmotes(false)
-        TriggerEvent('cs_tacoattack:client:prepStation')
+        TriggerEvent('stag_tacoattack:client:prepStation')
     end
 end)
 
-RegisterNetEvent('cs_tacoattack:client:makeDrink', function()
+RegisterNetEvent('stag_tacoattack:client:makeDrink', function()
     if GetInvokingResource() then return end
     toggleEmotes(true, 'drinks')
     if lib.progressCircle({
@@ -183,11 +183,11 @@ RegisterNetEvent('cs_tacoattack:client:makeDrink', function()
         disable = { move = true, car = false, mouse = false, combat = true, },
     }) then
         toggleEmotes(false)
-        TriggerEvent('cs_tacoattack:client:drinkStation')
+        TriggerEvent('stag_tacoattack:client:drinkStation')
     end
 end)
 
-AddEventHandler('cs_tacoattack:client:makeFood', function()
+AddEventHandler('stag_tacoattack:client:makeFood', function()
     local tacoAttack = 'ta_info'
     local taMenu = {
         id = tacoAttack,
@@ -198,7 +198,7 @@ AddEventHandler('cs_tacoattack:client:makeFood', function()
                 description = 'Requires: 1x Shell | 1x Beans | 1x Taco Filling | 1x Cheese Sauce',
                 icon = 'fa-solid fa-burger',
                 onSelect = function()
-                    lib.callback.await('cs_tacoattack:server:handleFood', false, 'nakedtaco')
+                    lib.callback.await('stag_tacoattack:server:handleFood', false, 'nakedtaco')
                 end,
             },
             {
@@ -214,7 +214,7 @@ AddEventHandler('cs_tacoattack:client:makeFood', function()
                 description = 'Requires: 1x Taco Shell | 1x Taco Filling',
                 icon = 'fa-solid fa-burger',
                 onSelect = function()
-                    lib.callback.await('cs_tacoattack:server:handleFood', false, 'grilledtaco')
+                    lib.callback.await('stag_tacoattack:server:handleFood', false, 'grilledtaco')
                 end,
             },
             {
@@ -222,7 +222,7 @@ AddEventHandler('cs_tacoattack:client:makeFood', function()
                 description = 'Requires: 1x Tortilla | 1x Burrito Filling | 1x Beans | 1x Veggie Mix',
                 icon = 'fa-solid fa-burger',
                 onSelect = function()
-                    lib.callback.await('cs_tacoattack:server:handleFood', false, 'classicburrito')
+                    lib.callback.await('stag_tacoattack:server:handleFood', false, 'classicburrito')
                 end,
             },
             {
@@ -230,7 +230,7 @@ AddEventHandler('cs_tacoattack:client:makeFood', function()
                 description = 'Requires: 1x Nacho Packet | 1x Cheese Sauce | 1x Salsa',
                 icon = 'fa-solid fa-burger',
                 onSelect = function()
-                    lib.callback.await('cs_tacoattack:server:handleFood', false, 'cheesenachos')
+                    lib.callback.await('stag_tacoattack:server:handleFood', false, 'cheesenachos')
                 end,
             },
         }
@@ -239,7 +239,7 @@ AddEventHandler('cs_tacoattack:client:makeFood', function()
     lib.showContext(tacoAttack)
 end)
 
-AddEventHandler('cs_tacoattack:client:drinkStation', function()
+AddEventHandler('stag_tacoattack:client:drinkStation', function()
     local tacoAttack = 'ta_info'
     local taMenu = {
         id = tacoAttack,
@@ -250,7 +250,7 @@ AddEventHandler('cs_tacoattack:client:drinkStation', function()
                 description = 'Requires: 1x Chopped Orange | 1x Water Bottle | 1x Sugar Packet',
                 icon = 'fa-solid fa-mug-hot',
                 onSelect = function()
-                    lib.callback.await('cs_tacoattack:server:handleFood', false, 'orangejuice')
+                    lib.callback.await('stag_tacoattack:server:handleFood', false, 'orangejuice')
                 end,
             },
             {
@@ -258,7 +258,7 @@ AddEventHandler('cs_tacoattack:client:drinkStation', function()
                 description = 'Requires: 1x Chopped Apples | 1x Water Bottle | 1x Sugar Packet',
                 icon = 'fa-solid fa-mug-hot',
                 onSelect = function()
-                    lib.callback.await('cs_tacoattack:server:handleFood', false, 'applejuice')
+                    lib.callback.await('stag_tacoattack:server:handleFood', false, 'applejuice')
                 end,
             },
         }
@@ -267,7 +267,7 @@ AddEventHandler('cs_tacoattack:client:drinkStation', function()
     lib.showContext(tacoAttack)
 end)
 
-AddEventHandler('cs_tacoattack:client:prepStation', function()
+AddEventHandler('stag_tacoattack:client:prepStation', function()
     local tacoAttack = 'ta_info'
     local taMenu = {
         id = tacoAttack,
@@ -278,7 +278,7 @@ AddEventHandler('cs_tacoattack:client:prepStation', function()
                 description = 'Requires: 1x Wheat Flour | 1x Water Bottle',
                 icon = 'fa-solid fa-fire-burner',
                 onSelect = function()
-                    lib.callback.await('cs_tacoattack:server:handleFood', false, 'tacoshell')
+                    lib.callback.await('stag_tacoattack:server:handleFood', false, 'tacoshell')
                 end,
             },
           {
@@ -286,7 +286,7 @@ AddEventHandler('cs_tacoattack:client:prepStation', function()
                 description = 'Requires: 1x Wheat Flour | 1x Water Bottle',
                 icon = 'fa-solid fa-fire-burner',
                 onSelect = function()
-                    lib.callback.await('cs_tacoattack:server:handleFood', false, 'tortilla')
+                    lib.callback.await('stag_tacoattack:server:handleFood', false, 'tortilla')
                 end,
             },
             {
@@ -294,7 +294,7 @@ AddEventHandler('cs_tacoattack:client:prepStation', function()
                 description = 'Requires: 1x Tomato | 1x Onion | 1x Garlic | 1x Carrot | 1x Capsicum',
                 icon = 'fa-solid fa-fire-burner',
                 onSelect = function()
-                    lib.callback.await('cs_tacoattack:server:handleFood', false, 'veggiesmix')
+                    lib.callback.await('stag_tacoattack:server:handleFood', false, 'veggiesmix')
                 end,
             },
         }
@@ -309,7 +309,7 @@ AddEventHandler('onResourceStop', function(resourceName)
     end 
 end)
 
-RegisterNetEvent("cs_tacoattack:client:useRegister", function()
+RegisterNetEvent("stag_tacoattack:client:useRegister", function()
     local bill = exports['qb-input']:ShowInput({
         header = "Cash Register",
 		submitText = "Charge",
@@ -333,6 +333,10 @@ RegisterNetEvent("cs_tacoattack:client:useRegister", function()
         if bill.citizenid == nil or bill.billprice == nil then 
             return 
         end
-        TriggerServerEvent("cs_tacoattack:server:billPlayer", bill.citizenid, bill.billprice)
+        TriggerServerEvent("stag_tacoattack:server:billPlayer", bill.citizenid, bill.billprice)
     end
+end)
+
+RegisterNetEvent('stag_tacoattack:ToggleDuty', function()
+    TriggerServerEvent('QBCore:ToggleDuty')
 end)
