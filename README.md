@@ -7,7 +7,8 @@ A standalone Taco Job utilising ox_lib. Locations and ingredients are configurab
 
 # Extras and Info
 Add to items.lua:
-``` -- Taco Job
+```
+-- Taco Job
     orange 			         = {name = 'orange', 			 	    label = 'Orange', 		        weight = 0, 		type = 'item', 		image = 'orange.png', 	        unique = false, 	useable = false, 	shouldClose = false,	   combinable = nil,   description = 'Something to Eat!'},
     apple 			         = {name = 'apple', 			 	    label = 'Apple', 		        weight = 0, 		type = 'item', 		image = 'apple.png', 	        unique = false, 	useable = false, 	shouldClose = false,	   combinable = nil,   description = 'Something to Eat!'},
 	tomato 			         = {name = 'tomato', 			 	    label = 'Tomato', 		        weight = 0, 		type = 'item', 		image = 'tomato.png', 	        unique = false, 	useable = false, 	shouldClose = false,	   combinable = nil,   description = 'Something to Eat!'},
@@ -39,10 +40,12 @@ Add to items.lua:
 	classicburrito 			 = {name = 'classicburrito', 			label = 'Classic Burrito', 		weight = 0, 		type = 'item', 		image = 'classicburrito.png', 	unique = false, 	useable = true, 	shouldClose = false,	   combinable = nil,   description = 'Something to Eat!'},
 	cheesenachos 			 = {name = 'cheesenachos', 			  	label = 'Cheese Nachos', 		weight = 0, 		type = 'item', 		image = 'cheesenachos.png', 	unique = false, 	useable = true, 	shouldClose = false,	   combinable = nil,   description = 'Something to Eat!'},
 	applejuice 				 = {name = 'applejuice', 			  	label = 'Apple Juice', 			weight = 0, 		type = 'item', 		image = 'applejuice.png', 		unique = false, 	useable = true, 	shouldClose = false,	   combinable = nil,   description = 'Something to Drink!'},
-	orangejuice 			 = {name = 'orangejuice', 			  	label = 'Orange Juice', 		weight = 0, 		type = 'item', 		image = 'orangejuice.png', 		unique = false, 	useable = true, 	shouldClose = false,	   combinable = nil,   description = 'Something to Drink!'},```
+	orangejuice 			 = {name = 'orangejuice', 			  	label = 'Orange Juice', 		weight = 0, 		type = 'item', 		image = 'orangejuice.png', 		unique = false, 	useable = true, 	shouldClose = false,	   combinable = nil,   description = 'Something to Drink!'},
+```
 
 If using seperate multijob remove from cl_tacoattack:
 ```
 RegisterNetEvent('stag_tacoattack:ToggleDuty', function()
     TriggerServerEvent('QBCore:ToggleDuty')
-end)```
+end)
+```
