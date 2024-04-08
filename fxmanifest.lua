@@ -19,8 +19,8 @@ server_scripts {
     'sv_tacoattack.lua',
 }
 escrow_ignore {
-    'bridge/client/**.lua,
-    'bridge/server/**.lua,
+    'bridge/client/**.lua',
+    'bridge/server/**.lua',
     'readme.md',
     'cl_tacoattack.lua',
     'sv_tacoattack.lua',
