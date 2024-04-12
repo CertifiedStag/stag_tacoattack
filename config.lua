@@ -36,7 +36,7 @@ return {
             [6] = { name = 'water_bottle', price = 0, amount = 500, info = {}, type = 'item', slot = 6, },
             [7] = { name = 'sugarpacket', price = 0, amount = 500, info = {}, type = 'item', slot = 7, },
             [8] = { name = 'cheesesauce', price = 0, amount = 500, info = {}, type = 'item', slot = 8, },
-            [9] = { name = 'nachopacket', price ='0', amount= 500, info = {}, type = 'item', slot = 9, },
+            [9] = { name = 'nachopacket', price = 0, amount= 500, info = {}, type = 'item', slot = 9, },
         }
     },
     Emotes = {
