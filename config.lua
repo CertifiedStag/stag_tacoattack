@@ -26,7 +26,7 @@ return {
     },
     Items = { -- qb-inventory
     label = 'Shop',
-        slots = 7,
+        slots = 9,
         items = {
             [1] = { name = 'tacofilling', price = 0, amount = 500, info = {}, type = 'item', slot = 1, },
             [2] = { name = 'salsa', price = 0, amount = 500, info = {}, type = 'item', slot = 2, },
