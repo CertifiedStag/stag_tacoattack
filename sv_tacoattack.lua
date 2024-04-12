@@ -87,7 +87,7 @@ RegisterNetEvent("stag_tacoattack:server:billPlayer", function(playerId, amount)
                 billed.Functions.RemoveMoney('bank', amount)
                 DoNotification(src, 'You charged a customer.', 'success')
                 DoNotification(billed.PlayerData.source, 'You have been charged £'..amount..' for your order at Taco Shop.')
-                exports['okokBanking']:AddMoney('tacoattack', value)
+                exports['qb-management']:AddMoney('tacoattack', value)
                 else
                     DoNotification(src, 'Must be a valid amount above 0.', 'error')
                 end
